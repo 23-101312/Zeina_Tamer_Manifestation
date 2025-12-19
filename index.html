@@ -3,21 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Document</title>
 </head>
 <body>
   <header>
     <nav>
-      <img src="assets/logo.png" alt="">
+      <img class="logo" src="assets/logo.png" alt="">
       <ul>
-        <li><a href="">Home</a></li>
+        <li class="active"><a href="">Home</a></li>
         <li><a href="">Story</a></li>
         <li><a href="">Myths</a></li>
         <li><a href="">Science</a></li>
         <li><a href="">Gallery</a></li>
         <li><a href="">Contact</a></li>        
       </ul>
-      <button><a href="">Login</a></button>
+      <div class="header_btns">
+        <div class="lang">
+          <button id="en">En</button>
+          <button id="ar">Ar</button>
+        </div>
+        <button id="mode"><img src="assets/sun.svg" alt=""></button>
+        <button id="login"><a href="">Login</a></button>
+      </div>
+      
     </nav>
   </header>
   
