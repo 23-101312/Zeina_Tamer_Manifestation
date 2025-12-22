@@ -206,7 +206,7 @@ main {
 }
 
 .hero h3 {
-  color: #000;
+  color: var(--main-text);
   text-align: right;
   font-family: 'SF Pro Display';
   font-size: 24px;
@@ -232,8 +232,6 @@ main {
   display: flex;
   overflow-x: auto;
   overflow-y: hidden;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
   background-image: url(assets/story.png);
   background-repeat: no-repeat;
   background-position: center;
@@ -342,7 +340,6 @@ main {
   align-self: flex-end;
 }
 
-
 .story_neuron {
   opacity: 0.9;
   z-index: 2;
@@ -413,7 +410,7 @@ main {
 
 .cards_section {
   width: 1300px;
-  height: 760px;
+  height: 740px;
   background-color: var(--sections-bg);
   border-radius: 40px;
   margin: 0 auto;
@@ -422,17 +419,21 @@ main {
   display: flex;
   flex-direction: column;
   gap: 45px;
+  background-image: url(assets/story.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
-.cards_header h2 {
+.cards_header h2, .science_header h2  {
   font-family: "SF Pro Display";
   font-size: 44px;
   font-weight: 500;
   text-transform: uppercase;
 }
 
-.cards_header p {
-  color: #B290A8;
+.cards_header p, .science_header p {
+  color:var(--pink-text);
   font-family: 'Acorn';
   font-size: 24px;
   font-style: normal;
@@ -475,7 +476,7 @@ main {
 }
 
 .card_image p {
-  color: white;
+  color: var(--white-text);
   font-family: "SF Pro Display";
   font-size: 24px;
   font-weight: 500;
@@ -493,4 +494,138 @@ main {
   font-weight: 500;
 }
 
+.science_section {
+  width: 1300px;
+  height: 980px;
+  background: var(--sections-bg);
+  border-radius: 40px;
+  margin: 0 auto;
+  padding: 70px 60px;
+  box-sizing: border-box;
+  overflow: visible;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
+.science_header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 5;
+  position: relative;
+}
+
+.science_stage {
+  position: relative;
+  width: 100%;
+  height: 720px;
+  display: grid;
+  place-items: center;
+  overflow: visible;
+}
+
+model-viewer.science_viewer {
+  width: 620px;
+  height: 620px;
+  background: transparent;
+  overflow: visible;
+}
+
+.science_rings {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.science_rings::before, .science_rings::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+
+  background: linear-gradient(
+    90deg,
+    rgba(178, 144, 168, 1) 0%,
+    rgba(178, 144, 168, 0.2) 100%
+  );
+
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 2px),
+    #000 calc(100% - 2px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 2px),
+    #000 calc(100% - 2px)
+  );
+}
+
+.science_rings::before {
+  width: 700px;
+  height: 700px;
+  animation: spin 10s linear infinite;
+}
+
+.science_rings::after {
+  width: 600px;
+  height: 600px;
+  animation: spin 30s linear infinite reverse;
+}
+
+@keyframes spin {
+  from { 
+    transform: rotate(0deg); 
+  }
+  to { 
+    transform: rotate(360deg);
+  }
+}
+
+model-viewer.science_viewer {
+  width: 900px;
+  height: 700px;
+  background: transparent;
+  overflow: visible;
+}
+
+.glass_hotspot {
+  border: none;
+  background: transparent;
+  position: absolute;
+  z-index: 999;
+}
+
+.hotspot_card {
+  width: 240px;
+  border-radius: 18px;
+  padding: 16px;
+  box-sizing: border-box;
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  text-align: center;
+  position: relative;
+  z-index: 999;
+}
+
+.hotspot_card h4 {
+  font-family: 'Acorn';
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--pink-text);
+  margin-bottom: 8px;
+}
+
+.hotspot_card p {
+  font-size: 12.5px;
+  font-weight: 400;
+  line-height: 139.583%; /* 27.917px */
+  color: var(--main-text);
+}
+
+.science_viewer::part(default-progress-bar) {
+  display: none;
+}

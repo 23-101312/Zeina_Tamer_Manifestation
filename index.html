@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
   <title>Document</title>
 </head>
 <body>
@@ -110,7 +112,76 @@ inside your brain  when you believe something.</h3>
   <p class="cards_hint">Tap a card to reveal whether it is a myth or a fact.</p>
 </section>
 
-  </main>
+<section class="science_section" id="science">
+
+  <div class="science_header">
+    <h2>WHAT ACTUALLY HAPPENS IN THE BRAIN</h2>
+    <p>Belief doesn't change reality directly. It changes how your brain processes it.</p>
+  </div>
+
+  <div class="science_stage">
+    <div class="science_rings"></div>
+    <model-viewer
+      class="science_viewer"
+      src="assets/brain 3d model.glb"
+      camera-controls
+      disable-zoom
+      tone-mapping="neutral"
+      exposure="1.05"
+      shadow-intensity="1"
+      interaction-prompt="none"
+      camera-orbit="-275.1deg 92.94deg 2.079m"
+      field-of-view="30deg">
+      <button class="Hotspot glass_hotspot" slot="hotspot-1"
+        data-position="-0.28m 0.244m 0.300m"
+        data-normal="0.7254352134542846m 0.5898857252891628m 0.35465276282670455m"
+        data-visibility-attribute="visible">
+        <div class="hotspot_card">
+          <h4>Belief changes what you notice</h4>
+          <p>
+            Your brain filters information. When you believe something, your brain starts paying attention to things that match that belief and ignoring what doesn't.
+            <br><br>
+            You don't see more. You see differently.
+          </p>
+        </div>
+      </button>
+
+      <button class="Hotspot glass_hotspot" slot="hotspot-2"
+        data-position="0.32693638215954657m 0.07877341033137832m -0.2547346589716744m"
+        data-normal="0.9077742725982239m -0.3477433509359827m -0.23456434487913877m"
+        data-visibility-attribute="visible">
+        <div class="hotspot_card">
+          <h4>Belief changes how things feel</h4>
+          <p>
+            The brain decides what matters emotionally. The same situation can feel motivating, stressful, or meaningless depending on what you believe about it.
+            <br><br>
+            Nothing outside changes. The feeling does.
+          </p>
+        </div>
+      </button>
+
+      <button class="Hotspot glass_hotspot" slot="hotspot-3"
+        data-position="0.1509395420536972m -0.24190609825786857m 0.29390827736547814m"
+        data-normal="0.6412768189384314m 0.04684271869528352m 0.7658784506678855m"
+        data-visibility-attribute="visible">
+        <div class="hotspot_card">
+          <h4>Motivation isn't willpower</h4>
+          <p>
+            Your brain is more likely to repeat actions that feel important or rewarding. Beliefs influence which actions get that priority.
+            <br><br>
+            What feels "easy" or "hard" is often brain wiring.
+          </p>
+        </div>
+      </button>
+
+    </model-viewer>
+  </div>
+
+</section>
+
+
+
+</main>
   
   <script src="code.js"></script>
 </body>
