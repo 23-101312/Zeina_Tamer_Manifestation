@@ -6,6 +6,7 @@
   --main-text: #000;
   --grey: #7D7C7C;
   --white-text: #fff;
+  --shadow: 0 10px 20px rgba(0,0,0,0.25);
 }
 
 @font-face {
@@ -68,8 +69,7 @@ body {
 }
 
 nav {
-  width: 100%;
-  max-width: 1300px;
+  width: 1300px;
   justify-content: space-between;
   display: flex;
   padding: 30px 0;
@@ -173,6 +173,12 @@ ul li a {
   text-decoration: none;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
 .hero {
   width: 1300px;
   height: 800px;
@@ -215,7 +221,7 @@ ul li a {
   height: 760px;
   background-color: var(--sections-bg);
   border-radius: 40px;
-  margin: 60px auto 0;
+  margin: 0 auto;
   overflow: hidden;
   position: relative;
 }
@@ -277,7 +283,7 @@ ul li a {
   font-family: "SF Pro Display", sans-serif;
   color: var(--white-text);
   font-size: 16px;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .skip_btn:hover {
@@ -402,6 +408,89 @@ ul li a {
   height: 100%;
   background: var(--pink-bg);
   border-radius: 10px;
-  transition: width 0.3s ease;
+  transition: all 0.3s ease;
 }
+
+.cards_section {
+  width: 1300px;
+  height: 760px;
+  background-color: var(--sections-bg);
+  border-radius: 40px;
+  margin: 0 auto;
+  padding: 70px 60px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+
+.cards_header h2 {
+  font-family: "SF Pro Display";
+  font-size: 44px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.cards_header p {
+  color: #B290A8;
+  font-family: 'Acorn';
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 139.583%; /* 33.5px */
+  color: var(--pink-text);
+}
+
+.cards_grid {
+  display: flex;
+  align-items: center;
+  gap: 55px;
+  align-self: center;
+}
+
+.myth_card {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.card_image {
+  width: 290px;
+  height: 450px;
+  background-image: url("assets/card.png"); 
+  background-size: cover;
+  background-position: center;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.myth_card:hover .card_image {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow) ;
+}
+
+.card_image p {
+  color: white;
+  font-family: "SF Pro Display";
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+  width: 200px;
+  text-shadow: var(--shadow);
+}
+
+.cards_hint {
+  font-size: 14px;
+  text-align: center;
+  color:var(--main-text);
+  font-family: 'Acorn';
+  font-style: normal;
+  font-weight: 500;
+}
+
 
