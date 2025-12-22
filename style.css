@@ -68,15 +68,15 @@ body {
   background-color: var(--background);
 }
 
-nav {
+header nav {
   width: 1300px;
   justify-content: space-between;
   display: flex;
-  padding: 30px 0;
+  padding: 15px 0;
   margin: 0 auto;
 }
 
-ul {
+header nav ul {
   list-style-type: none;
   gap: 50px;
   display: flex;
@@ -85,6 +85,8 @@ ul {
 
 .logo {
   padding-right: 50px;
+  width: 93px;
+  height: auto;
 }
 
 ul li a {
@@ -235,7 +237,7 @@ main {
   background-image: url(assets/story.png);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: 130%;
 }
 
 .story_scroller::-webkit-scrollbar {
@@ -309,6 +311,7 @@ main {
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 60px;
@@ -328,7 +331,6 @@ main {
   width: 700px;  
   height: auto;
   object-fit: contain;
-  align-self: flex-end;
 }
 
 .story_girl2 {
@@ -358,32 +360,24 @@ main {
 }
 
 .story_text {
-  position: absolute;
-  bottom: 80px;
-  left: 50%;
-  transform: translateX(-50%);
   color: var(--main-text);
-  font-family: "SF Pro Display", sans-serif;
-  font-size: 32px;
-  font-weight: 500;
   text-align: center;
-  width: 90%;
-  max-width: 1000px;
+  font-family: 'Acorn';
+  font-size: 64px;
+  font-weight: 500;
   z-index: 3;
 }
 
 .story_text2 {
   position: absolute;
   top: 80px;
-  left: 50%;
+  left: 70%;
   transform: translateX(-50%);
   color: var(--main-text);
-  font-family: "SF Pro Display", sans-serif;
-  font-size: 32px;
-  font-weight: 500;
   text-align: center;
-  width: 90%;
-  max-width: 1000px;
+  font-family: 'Acorn';
+  font-size: 64px;
+  font-weight: 500;
   z-index: 3;
 }
 
@@ -507,7 +501,12 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+   background-image: url(assets/story.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
+
 
 .science_header {
   display: flex;
@@ -628,4 +627,153 @@ model-viewer.science_viewer {
 
 .science_viewer::part(default-progress-bar) {
   display: none;
+}
+
+.gallery_section {
+  width: 1300px;
+  height: 760px;            
+  background: var(--sections-bg);
+  border-radius: 40px;
+  margin: 0 auto;
+  padding: 60px;          
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery_wrap{
+  width: 100%;
+  height: 100%;
+  position: relative;         
+  overflow: hidden;
+  border-radius: 30px;
+}
+
+
+.gallery_wrap > ul.slider{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: block;
+}
+
+.gallery_wrap .item{
+  width: 200px;
+  height: 300px;
+  list-style-type: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  background-position: center;
+  background-size: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 30px rgba(255,255,255,0.3) inset;
+  transition: transform 0.1s, left 0.75s, top 0.75s, width 0.75s, height 0.75s;
+}
+
+.gallery_wrap .item:nth-child(1), .gallery_wrap .item:nth-child(2){
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  border-radius: 0;
+  box-shadow: none;
+  opacity: 1;
+}
+
+.gallery_wrap .item:nth-child(3){ left: 50%; }
+.gallery_wrap .item:nth-child(4){ left: calc(50% + 220px); }
+.gallery_wrap .item:nth-child(5){ left: calc(50% + 440px); }
+.gallery_wrap .item:nth-child(6){ left: calc(50% + 660px); opacity: 0; }
+
+.gallery_wrap .content {
+  width: min(30vw, 400px);
+  position: absolute;
+  top: 50%;
+  left: 3rem;
+  transform: translateY(-50%);
+  font: 400 0.85rem helvetica, sans-serif;
+  color: var(--white-text);
+  text-shadow: 0 3px 8px rgba(0,0,0,0.5);
+  opacity: 0;
+  display: none;
+}
+
+.gallery_wrap .content .title {
+  font-family: "SF Pro Display";
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 139.583%; /* 83.75px */
+  text-transform: uppercase;
+}
+
+.gallery_wrap .content .description{
+  color: var(--pink-text);
+  font-family: 'Acorn';
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 139.583%; /* 33.5px */
+  line-height: 1.7;
+  margin: 1rem 0 1.5rem;
+  font-size: 0.8rem;
+}
+
+.gallery_wrap .content button {
+  width: fit-content;
+  background-color: rgba(0,0,0,0.1);
+  color: var(--white-text);
+  border: 2px solid var(--white-text);
+  border-radius: 30px;
+  padding: 0.75rem;
+  cursor: pointer;
+}
+
+.gallery_wrap .item:nth-of-type(2) .content {
+  display: block;
+  animation: show 0.75s ease-in-out 0.3s forwards;
+}
+
+@keyframes show{
+  0%{
+    filter: blur(5px);
+    transform: translateY(calc(-50% + 75px));
+  }
+  100%{
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.gallery_wrap .nav{
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  user-select: none;
+}
+
+.gallery_wrap .nav .btn{
+  background-color: rgba(255,255,255,0.5);
+  color: rgba(0,0,0,0.7);
+  border: 2px solid rgba(0,0,0,0.6);
+  margin: 0 0.25rem;
+  padding: 0.75rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.gallery_wrap .nav .btn:hover{
+  background-color: rgba(255,255,255,0.3);
+}
+
+.gallery_wrap ion-icon.btn{
+  font-size: 22px;
 }
