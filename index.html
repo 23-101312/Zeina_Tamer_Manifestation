@@ -164,66 +164,17 @@ inside your brain  when you believe something.</h3>
 
 <section class="gallery_section" id="gallery">
   <div class="gallery_wrap">
-    <ul class="slider">
-    <li class='item' style="background-image: url('assets/image1.png')">
-      <div class='content'>
-        <h2 class='title'>"Lossless Youths"</h2>
-        <p class='description'> Lorem ipsum, dolor sit amet consectetur
-        adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
-        praesentium nisi. Id laboriosam ipsam enim.  </p>
-        <button>Read More</button>
-      </div>
-    </li>
-    <li class='item' style="background-image: url('assets/image2.png')">
-      <div class='content'>
-        <h2 class='title'>"Estrange Bond"</h2>
-        <p class='description'> Lorem ipsum, dolor sit amet consectetur
-        adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
-        praesentium nisi. Id laboriosam ipsam enim.  </p>
-        <button>Read More</button>
-      </div>
-    </li>
-    <li class='item' style="background-image: url('assets/image3.png')">
-      <div class='content'>
-        <h2 class='title'>"The Gate Keeper"</h2>
-        <p class='description'> Lorem ipsum, dolor sit amet consectetur
-        adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
-        praesentium nisi. Id laboriosam ipsam enim.  </p>
-        <button>Read More</button>
-      </div>
-    </li>
-    <li class='item' style="background-image: url('assets/image4.png')">
-      <div class='content'>
-        <h2 class='title'>"Last Trace Of Us"</h2>
-        <p class='description'>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.
-        </p>
-        <button>Read More</button>
-      </div>
-    </li>
-    <li class='item' style="background-image: url('assets/image1.png')">
-      <div class='content'>
-        <h2 class='title'>"Urban Decay"</h2>
-        <p class='description'>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.
-        </p>
-        <button>Read More</button>
-      </div>
-    </li>
-    <li class='item' style="background-image: url('assets/image1.png')">
-      <div class='content'>
-        <h2 class='title'>"The Migration"</h2>
-        <p class='description'> Lorem ipsum, dolor sit amet consectetur
-        adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
-        praesentium nisi. Id laboriosam ipsam enim.  </p>
-        <button>Read More</button>
-      </div>
-    </li>
-  </ul>
+    <ul class="slider" id="gallery_slider">
+    </ul>
    <nav class="nav">
       <ion-icon class="btn prev" name="arrow-back-outline"></ion-icon>
       <ion-icon class="btn next" name="arrow-forward-outline"></ion-icon>
     </nav>
+  </div>
+  
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox_close" id="lightbox_close">&times;</span>
+    <img id="lightbox_image" src="" alt="">
   </div>
 </section>
 
@@ -248,7 +199,7 @@ inside your brain  when you believe something.</h3>
       <label for="message">Message</label>
       <textarea id="message" name="message" rows="5" required></textarea>
     </div>
-    
+
     <button type="submit" class="submit_btn">Send Message</button>
   </form>
 </section>
