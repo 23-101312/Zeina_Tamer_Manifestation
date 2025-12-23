@@ -64,6 +64,34 @@
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+.scroll_up_btn {
+  position: sticky;
+  top: calc(100vh - 120px); 
+  left: 95%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--pink-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 50;
+  border: none;
+  text-decoration: none;
+}
+
+.scroll_up_btn img {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0%);
+}
+
 body {
   width: 100vw;
   background-color: var(--background);

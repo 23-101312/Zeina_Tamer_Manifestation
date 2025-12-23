@@ -25,7 +25,7 @@
           <button id="ar" onclick="changeLang('AR')"></button>
         </div>
         <button id="mode"><img src="assets/sun.svg" alt=""></button>
-        <button id="login"><a href="" id="login_link"></a></button>
+        <button id="login"><a href="login.html" id="login_link"></a></button>
       </div>
     </nav>
   </header>
@@ -34,12 +34,16 @@
 
   
 
-  <section class="hero">
+  <section id="hero" class="hero">
     <h1 id="hero_title"></h1>
     <h3 id="hero_subtitle"></h3>
   </section>
 
-  <section class="story_section">
+  <a href="#hero" class="scroll_up_btn">
+      <img src="assets/arrow_up.svg" alt=" ">
+    </a>
+
+  <section id="story" class="story_section">
     <button class="skip_btn" id="skip_btn">
       <span id="skip_text"></span>
       <div class="skip_arrow">→</div>
@@ -59,6 +63,24 @@
     <p id="cards_header_desc"></p>
   </div>
 
+  <div id="cards" class="cards_grid">
+    <button class="myth_card" type="button">
+      <div class="card_image">
+        <p>If you believe hard enough, the universe will deliver what you want.</p>
+      </div>
+    </button>
+
+    <button class="myth_card" type="button">
+      <div class="card_image">
+        <p>Writing affirmations rewires your brain automatically.</p>
+      </div>
+    </button>
+
+    <button class="myth_card" type="button">
+      <div class="card_image">
+        <p>Belief changes how your brain filters and interprets information.</p>
+      </div>
+    </button>
   <div class="cards_grid" id="cards_grid">
   </div>
 

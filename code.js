@@ -54,9 +54,9 @@ document.getElementById("story_scroller").innerHTML += `
   </div>
 `;
 
-document.getElementById('cards_header_title').innerHTML = localStorage.getItem("cardsHeaderTitle" + localLang);
-document.getElementById('cards_header_desc').innerHTML = localStorage.getItem("cardsHeaderDesc" + localLang);
-document.getElementById('cards_hint').innerHTML = localStorage.getItem("cardsHint" + localLang);
+// document.getElementById('cards_header_title').innerHTML = localStorage.getItem("cardsHeaderTitle" + localLang);
+// document.getElementById('cards_header_desc').innerHTML = localStorage.getItem("cardsHeaderDesc" + localLang);
+// document.getElementById('cards_hint').innerHTML = localStorage.getItem("cardsHint" + localLang);
 
 document.getElementById('science_header_title').innerHTML = localStorage.getItem("scienceHeaderTitle" + localLang);
 document.getElementById('science_header_desc').innerHTML = localStorage.getItem("scienceHeaderDesc" + localLang);
@@ -177,30 +177,46 @@ if (lightbox) {
   });
 }
 
+const mythCards = [
+  {
+    text: "If you believe hard enough, the universe will deliver what you want.",
+    isFact: false,
+    result: "MYTH"
+  },
+  {
+    text: "Writing affirmations rewires your brain automatically.",
+    isFact: false,
+    result: "MYTH"
+  },
+  {
+    text: "Belief changes how your brain filters and interprets information.",
+    isFact: true,
+    result: "SCIENCE"
+  }
+];
+
 const cardsGrid = document.getElementById("cards_grid");
 
-for (let i = 0; i < 3; i++) {
-  let cardText = localStorage.getItem(`mythCard${i + 1}` + localLang);
-  let isFact = i === 2;
-  let resultText = isFact ? localStorage.getItem("scienceResult" + localLang) : localStorage.getItem("mythResult" + localLang);
+for (let i = 0; i < mythCards.length; i++) {
+  const card = mythCards[i];
   
   const cardButton = document.createElement("button");
   cardButton.className = "myth_card";
   cardButton.type = "button";
   cardButton.dataset.index = i;
-  cardButton.dataset.isFact = isFact;
+  cardButton.dataset.isFact = card.isFact;
   
   const cardImage = document.createElement("div");
   cardImage.className = "card_image";
   
-  const cardTextElement = document.createElement("p");
-  cardTextElement.textContent = cardText;
+  const cardText = document.createElement("p");
+  cardText.textContent = card.text;
   
   const cardBack = document.createElement("div");
   cardBack.className = "card_back";
-  cardBack.textContent = resultText;
+  cardBack.textContent = card.result;
   
-  cardImage.appendChild(cardTextElement);
+  cardImage.appendChild(cardText);
   cardButton.appendChild(cardImage);
   cardButton.appendChild(cardBack);
   
@@ -209,19 +225,70 @@ for (let i = 0; i < 3; i++) {
     
     this.classList.add("flipped");
     
-    if (i === 2) {
+    if (i === mythCards.length - 1) {
       setTimeout(() => {
-        alert(localStorage.getItem("winMessage" + localLang));
+        alert("You win! This is the scientifically proven fact.");
       }, 300);
     } else {
       setTimeout(() => {
-        alert(localStorage.getItem("loseMessage" + localLang));
+        alert("You lose! This is a myth, not a fact.");
       }, 300);
     }
   });
   
   cardsGrid.appendChild(cardButton);
 }
+
+
+// let cardsGrid = document.getElementById("cards_grid");
+
+// let currentLang = localStorage.getItem("language") || "EN";
+
+// for (let i = 0; i < 3; i++) {
+//   let cardText = localStorage.getItem(`mythCard${i + 1}` + currentLang) || localStorage.getItem(`mythCard${i + 1}EN`);
+//   let isFact = i === 2;
+//   let resultText = isFact ? (localStorage.getItem("scienceResult" + currentLang) || localStorage.getItem("scienceResultEN")) : (localStorage.getItem("mythResult" + currentLang) || localStorage.getItem("mythResultEN"));
+  
+//   let cardButton = document.createElement("button");
+//   cardButton.className = "myth_card";
+//   cardButton.type = "button";
+//   cardButton.dataset.index = i;
+//   cardButton.dataset.isFact = isFact;
+  
+//   let cardImage = document.createElement("div");
+//   cardImage.className = "card_image";
+  
+//   let cardTextElement = document.createElement("p");
+//   cardTextElement.textContent = cardText || "Loading...";
+  
+//   let cardBack = document.createElement("div");
+//   cardBack.className = "card_back";
+//   cardBack.textContent = resultText || (isFact ? "SCIENCE" : "MYTH");
+  
+//   cardImage.appendChild(cardTextElement);
+//   cardButton.appendChild(cardImage);
+//   cardButton.appendChild(cardBack);
+  
+//   cardButton.addEventListener("click", function() {
+//     if (this.classList.contains("flipped")) return; 
+    
+//     this.classList.add("flipped");
+    
+//     let clickLang = localStorage.getItem("language") || "EN";
+    
+//     if (i === 2) {
+//       setTimeout(() => {
+//         alert(localStorage.getItem("winMessage" + clickLang));
+//       }, 300);
+//     } else {
+//       setTimeout(() => {
+//         alert(localStorage.getItem("loseMessage" + clickLang));
+//       }, 300);
+//     }
+//   });
+  
+//   cardsGrid.appendChild(cardButton);
+// }
 
 let contact_form = document.getElementById("contact_form")
 
