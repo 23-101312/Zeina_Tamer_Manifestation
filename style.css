@@ -777,3 +777,185 @@ model-viewer.science_viewer {
 .gallery_wrap ion-icon.btn{
   font-size: 22px;
 }
+
+
+.login_page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  box-sizing: border-box;
+  background-image: url(assets/story.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.login_page_wrap {
+  width: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.login_page_brain {
+  width: 80px;
+  height: auto;
+}
+
+.login_page_card {
+  width: 100%;
+  background: var(--sections-bg);
+  border-radius: 30px;
+  padding: 46px 52px;
+  box-sizing: border-box;
+  box-shadow: var(--shadow);
+}
+
+.login_page_title {
+  font-family: "SF Pro Display";
+  font-size: 54px;
+  font-weight: 700;
+  color: var(--main-text);
+  text-align: center;
+  line-height: 1.1;
+}
+
+.login_page_subtitle {
+  margin-top: 10px;
+  font-family: "Acorn";
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--grey);
+  text-align: center;
+}
+
+.login_page_form { 
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.login_page_field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login_page_label {
+  font-family: "SF Pro Display";
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--main-text);
+}
+
+.login_page_input {
+  width: 100%;
+  height: 56px;
+  padding: 0 18px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  border: 1px solid var(--grey);
+  background: var(--white-text);
+  font-family: "SF Pro Display";
+  font-size: 16px;
+  color: var(--main-text);
+  outline: none;
+}
+
+.login_page_input::placeholder {
+  color:var(--grey);
+}
+
+.login_page_input:focus{
+  border-color:var(--pink-bg);
+  box-shadow: var(--shadow);
+}
+
+.login_page_password_wrap {
+  position: relative;
+}
+
+.login_page_input_password {
+  padding-right: 54px;
+}
+
+.login_page_eye_btn {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255,255,255,0.75);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.login_page_eye_icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.55;
+}
+
+.login_page_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 2px;
+}
+
+.login_page_check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.login_page_checkbox {
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  accent-color: var(--pink-bg);
+}
+
+.login_page_check_text {
+  font-family: "SF Pro Display";
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--grey);
+}
+
+.login_page_link {
+  font-family: "SF Pro Display";
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--pink-bg);
+  text-decoration: none;
+}
+
+.login_page_link:hover {
+  text-decoration: underline;
+}
+
+.login_page_primary_btn {
+  margin-top: 8px;
+  width: 100%;
+  height: 58px;
+  border-radius: 999px;
+  border: none;
+  background: var(--pink-bg);
+  color: var(--white-text);
+  font-family: "SF Pro Display";
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
