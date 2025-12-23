@@ -9,6 +9,8 @@
   <title>Document</title>
 </head>
 <body>
+  <div id="preloader"></div>
+  <div id="random_fact_card"></div>
   <header>
     <nav>
       <img class="logo" src="assets/logo (2).png" alt="">
@@ -16,8 +18,8 @@
       </ul>
       <div class="header_btns">
         <div class="lang">
-          <button id="en"></button>
-          <button id="ar"></button>
+          <button id="en" onclick="changeLang('EN')"></button>
+          <button id="ar" onclick="changeLang('AR')"></button>
         </div>
         <button id="mode"><img src="assets/sun.svg" alt=""></button>
         <button id="login"><a href="" id="login_link"></a></button>
@@ -160,6 +162,7 @@
 
 </main>
 
+  <script src="local.js"></script>
   <script src="code.js"></script>
   
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

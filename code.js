@@ -1,47 +1,6 @@
-const navItems = ['Home', 'Story', 'Myths', 'Science', 'Gallery', 'Contact'];
+let localLang = localStorage.getItem("language") || "EN";
 
-const storyFrames = [
-  {
-    type: 'frame1',
-    image: 'assets/girl1.png',
-    imageClass: 'story_girl',
-    text: 'You were told that belief alone could change your life',
-    textClass: 'story_text'
-  },
-  {
-    type: 'frame2',
-    text: 'That if you visualized hard enough, results would follow',
-    textClass: 'story_text2',
-    images: [
-      { src: 'assets/bubble1.png', class: 'story_neuron story_neuron_1' },
-      { src: 'assets/girl2.png', class: 'story_girl2' }
-    ]
-  },
-  {
-    type: 'frame3',
-    text: 'But when nothing changed, you blamed yourself',
-    textClass: 'story_text2',
-    images: [
-      { src: 'assets/bubble2.png', class: 'story_neuron story_neuron_2' },
-      { src: 'assets/girl3.png', class: 'story_girl2' }
-    ]
-  }
-];
-
-const scienceHotspots = [
-  {
-    title: 'Belief changes what you notice',
-    description: 'Your brain filters information. When you believe something, your brain starts paying attention to things that match that belief and ignoring what doesn\'t.<br><br>You don\'t see more. You see differently.'
-  },
-  {
-    title: 'Belief changes how things feel',
-    description: 'The brain decides what matters emotionally. The same situation can feel motivating, stressful, or meaningless depending on what you believe about it.<br><br>Nothing outside changes. The feeling does.'
-  },
-  {
-    title: 'Motivation isn\'t willpower',
-    description: 'Your brain is more likely to repeat actions that feel important or rewarding. Beliefs influence which actions get that priority.<br><br>What feels "easy" or "hard" is often brain wiring.'
-  }
-];
+let navItems = JSON.parse(localStorage.getItem("navItems" + localLang));
 
 document.getElementById("nav_list").innerHTML += `
   <li class="active"><a href="">${navItems[0]}</a></li>
@@ -55,29 +14,28 @@ for (let i = 1; i < navItems.length; i++) {
 
 document.getElementById('en').innerHTML = 'En';
 document.getElementById('ar').innerHTML = 'Ar';
-document.getElementById('login_link').innerHTML = 'Login';
+document.getElementById('login_link').innerHTML = localStorage.getItem("loginLink" + localLang);
 
-document.getElementById('hero_title').innerHTML = 'What if manifestation <br>isn\'t magic?';
-document.getElementById('hero_subtitle').innerHTML = 'What actually happens <br>inside your brain  when you believe something.';
+document.getElementById('hero_title').innerHTML = localStorage.getItem("heroTitle" + localLang);
+document.getElementById('hero_subtitle').innerHTML = localStorage.getItem("heroSubtitle" + localLang);
 
-document.getElementById('skip_text').innerHTML = 'Skip';
+document.getElementById('skip_text').innerHTML = localStorage.getItem("skipText" + localLang);
 
 document.getElementById("story_scroller").innerHTML += `
   <div class="story_frame">
     <div class="story_content">
-      <img src="${storyFrames[0].image}" class="${storyFrames[0].imageClass}">
-      <p class="${storyFrames[0].textClass}">${storyFrames[0].text}</p>
+      <img src="assets/girl1.png" class="story_girl">
+      <p class="story_text">${localStorage.getItem("storyFrame1" + localLang)}</p>
     </div>
   </div>
 `;
 
 let imagesHTML2 = '';
-for (let j = 0; j < storyFrames[1].images.length; j++) {
-  imagesHTML2 += `<img src="${storyFrames[1].images[j].src}" class="${storyFrames[1].images[j].class}">`;
-}
+imagesHTML2 += `<img src="assets/bubble1.png" class="story_neuron story_neuron_1">`;
+imagesHTML2 += `<img src="assets/girl2.png" class="story_girl2">`;
 document.getElementById("story_scroller").innerHTML += `
   <div class="story_frame story_frame_2">
-    <p class="${storyFrames[1].textClass}">${storyFrames[1].text}</p>
+    <p class="story_text2">${localStorage.getItem("storyFrame2" + localLang)}</p>
     <div class="story_content2">
       ${imagesHTML2}
     </div>
@@ -85,36 +43,40 @@ document.getElementById("story_scroller").innerHTML += `
 `;
 
 let imagesHTML3 = '';
-for (let j = 0; j < storyFrames[2].images.length; j++) {
-  imagesHTML3 += `<img src="${storyFrames[2].images[j].src}" class="${storyFrames[2].images[j].class}">`;
-}
+imagesHTML3 += `<img src="assets/bubble2.png" class="story_neuron story_neuron_2">`;
+imagesHTML3 += `<img src="assets/girl3.png" class="story_girl2">`;
 document.getElementById("story_scroller").innerHTML += `
   <div class="story_frame story_frame_3">
-    <p class="${storyFrames[2].textClass}">${storyFrames[2].text}</p>
+    <p class="story_text2">${localStorage.getItem("storyFrame3" + localLang)}</p>
     <div class="story_content2">
       ${imagesHTML3}
     </div>
   </div>
 `;
 
-document.getElementById('cards_header_title').innerHTML = 'TWO MYTHS & ONE FACT';
-document.getElementById('cards_header_desc').innerHTML = 'Three statements below. Only one is scientifically true. Choose wisely.';
-document.getElementById('cards_hint').innerHTML = 'Tap a card to reveal whether it is a myth or a fact.';
+document.getElementById('cards_header_title').innerHTML = localStorage.getItem("cardsHeaderTitle" + localLang);
+document.getElementById('cards_header_desc').innerHTML = localStorage.getItem("cardsHeaderDesc" + localLang);
+document.getElementById('cards_hint').innerHTML = localStorage.getItem("cardsHint" + localLang);
 
-document.getElementById('science_header_title').innerHTML = 'WHAT ACTUALLY HAPPENS IN THE BRAIN';
-document.getElementById('science_header_desc').innerHTML = 'Belief doesn\'t change reality directly. It changes how your brain processes it.';
+document.getElementById('science_header_title').innerHTML = localStorage.getItem("scienceHeaderTitle" + localLang);
+document.getElementById('science_header_desc').innerHTML = localStorage.getItem("scienceHeaderDesc" + localLang);
 
-for (let i = 0; i < scienceHotspots.length; i++) {
-  document.getElementById(`hotspot_${i + 1}_title`).innerHTML = scienceHotspots[i].title;
-  document.getElementById(`hotspot_${i + 1}_desc`).innerHTML = scienceHotspots[i].description;
+for (let i = 0; i < 3; i++) {
+  document.getElementById(`hotspot_${i + 1}_title`).innerHTML = localStorage.getItem(`hotspot${i + 1}Title` + localLang);
+  document.getElementById(`hotspot_${i + 1}_desc`).innerHTML = localStorage.getItem(`hotspot${i + 1}Desc` + localLang);
 }
 
-document.getElementById('contact_header_title').innerHTML = 'Contact Us';
-document.getElementById('contact_header_desc').innerHTML = 'Get in touch with us';
-document.getElementById('name_label').innerHTML = 'Name';
-document.getElementById('email_label').innerHTML = 'Email';
-document.getElementById('message_label').innerHTML = 'Message';
-document.getElementById('submit_btn').innerHTML = 'Send Message';
+document.getElementById('contact_header_title').innerHTML = localStorage.getItem("contactHeaderTitle" + localLang);
+document.getElementById('contact_header_desc').innerHTML = localStorage.getItem("contactHeaderDesc" + localLang);
+document.getElementById('name_label').innerHTML = localStorage.getItem("nameLabel" + localLang);
+document.getElementById('email_label').innerHTML = localStorage.getItem("emailLabel" + localLang);
+document.getElementById('message_label').innerHTML = localStorage.getItem("messageLabel" + localLang);
+document.getElementById('submit_btn').innerHTML = localStorage.getItem("submitBtn" + localLang);
+
+function changeLang(lang) {
+  localStorage.setItem("language", lang);
+  window.location.reload();
+}
 
 function activate(e) {
   const slider = document.querySelector('.slider') || document.getElementById('gallery_slider');
@@ -128,88 +90,41 @@ function activate(e) {
 document.addEventListener('click',activate,false);
 
 const galleryImages = [
-  {
-    image: 'assets/image1.webp',
-    title: '"Lossless Youths"',
-    shortDesc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.',
-    fullDesc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim. This is a deeper exploration into the concept of youth and its preservation. The artwork captures the essence of timeless moments and the beauty of fleeting experiences.'
-  },
-  {
-    image: 'assets/image2.webp',
-    title: '"Estrange Bond"',
-    shortDesc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.',
-    fullDesc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim. This piece explores the complex relationships between individuals, highlighting the strange and beautiful connections that bind us together despite our differences.'
-  },
-  {
-    image: 'assets/image3.webp',
-    title: '"The Gate Keeper"',
-    shortDesc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.',
-    fullDesc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim. A powerful representation of guardianship and protection, this work symbolizes the role of those who stand at the threshold between worlds, protecting what lies beyond.'
-  },
-  {
-    image: 'assets/image4.webp',
-    title: '"Last Trace Of Us"',
-    shortDesc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.',
-    fullDesc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim. An emotional journey through memory and loss, capturing the final remnants of what once was, leaving only traces of our existence in the world.'
-  },
-  {
-    image: 'assets/image5.webp',
-    title: '"Urban Decay"',
-    shortDesc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.',
-    fullDesc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim. This artwork examines the beauty found in decay, the transformation of urban landscapes, and the poetry of deterioration that tells stories of time and change.'
-  },
-  {
-    image: 'assets/image1.webp',
-    title: '"The Migration"',
-    shortDesc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.',
-    fullDesc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim. A visual narrative of movement and transition, capturing the essence of migration, both physical and metaphorical, as beings move through space and time seeking new beginnings.'
-  }
+  { image: 'assets/image1.webp' },
+  { image: 'assets/image2.webp' },
+  { image: 'assets/image3.webp' },
+  { image: 'assets/image4.webp' },
+  { image: 'assets/image5.webp' },
+  { image: 'assets/image1.webp' }
 ];
 
 function loadGallery() {
-  const gallerySlider = document.getElementById('gallery_slider');
-  if (!gallerySlider) return;
+  let localLang = localStorage.getItem("language");
+  let gallerySlider = document.getElementById('gallery_slider');
   
   gallerySlider.innerHTML = '';
   
   for (let i = 0; i < galleryImages.length; i++) {
-    const item = galleryImages[i];
-    const li = document.createElement('li');
-    li.className = 'item';
-    li.style.backgroundImage = `url('${item.image}')`;
-    li.dataset.imageUrl = item.image;
+    let title = localStorage.getItem(`galleryTitle${i + 1}` + localLang);
+    let shortDesc = localStorage.getItem(`galleryShort${i + 1}` + localLang);
+    let fullDesc = localStorage.getItem(`galleryFull${i + 1}` + localLang);
     
-    const content = document.createElement('div');
-    content.className = 'content';
-    
-    const title = document.createElement('h2');
-    title.className = 'title';
-    title.textContent = item.title;
-    
-    const description = document.createElement('p');
-    description.className = 'description';
-    description.textContent = item.shortDesc;
-    description.dataset.fullText = item.fullDesc;
-    description.dataset.shortText = item.shortDesc;
-    
-    const readMoreBtn = document.createElement('button');
-    readMoreBtn.className = 'read_more_btn';
-    readMoreBtn.textContent = 'Read More';
-    readMoreBtn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      toggleReadMore(description, readMoreBtn);
+    gallerySlider.innerHTML += `
+      <li class="item" style="background-image: url('${galleryImages[i].image}')" data-image-url="${galleryImages[i].image}">
+        <div class="content">
+          <h2 class="title">${title}</h2>
+          <p class="description" data-full-text="${fullDesc}" data-short-text="${shortDesc}">${shortDesc}</p>
+          <button class="read_more_btn" onclick="event.stopPropagation(); toggleReadMore(this)">${localStorage.getItem("readMore" + localLang)}</button>
+        </div>
+      </li>
+    `;
+  }
+  
+  let items = document.querySelectorAll('.item');
+  for (let i = 0; i < items.length; i++) {
+    items[i].addEventListener('click', function() {
+      openLightbox(this.dataset.imageUrl);
     });
-    
-    content.appendChild(title);
-    content.appendChild(description);
-    content.appendChild(readMoreBtn);
-    li.appendChild(content);
-    
-    li.addEventListener('click', function() {
-      openLightbox(item.image);
-    });
-    
-    gallerySlider.appendChild(li);
   }
 }
 
@@ -231,16 +146,13 @@ function closeLightbox() {
   }
 }
 
-function toggleReadMore(description, button) {
-  const isExpanded = button.textContent === 'Read Less';
+function toggleReadMore(button) {
+  let localLang = localStorage.getItem("language");
+  let description = button.previousElementSibling;
+  let isExpanded = button.textContent === localStorage.getItem("readLess" + localLang);
   
-  if (isExpanded) {
-    description.textContent = description.dataset.shortText;
-    button.textContent = 'Read More';
-  } else {
-    description.textContent = description.dataset.fullText;
-    button.textContent = 'Read Less';
-  }
+  description.textContent = isExpanded ? description.dataset.shortText : description.dataset.fullText;
+  button.textContent = isExpanded ? localStorage.getItem("readMore" + localLang) : localStorage.getItem("readLess" + localLang);
 }
 
 loadGallery();
@@ -265,46 +177,30 @@ if (lightbox) {
   });
 }
 
-const mythCards = [
-  {
-    text: "If you believe hard enough, the universe will deliver what you want.",
-    isFact: false,
-    result: "MYTH"
-  },
-  {
-    text: "Writing affirmations rewires your brain automatically.",
-    isFact: false,
-    result: "MYTH"
-  },
-  {
-    text: "Belief changes how your brain filters and interprets information.",
-    isFact: true,
-    result: "SCIENCE"
-  }
-];
-
 const cardsGrid = document.getElementById("cards_grid");
 
-for (let i = 0; i < mythCards.length; i++) {
-  const card = mythCards[i];
+for (let i = 0; i < 3; i++) {
+  let cardText = localStorage.getItem(`mythCard${i + 1}` + localLang);
+  let isFact = i === 2;
+  let resultText = isFact ? localStorage.getItem("scienceResult" + localLang) : localStorage.getItem("mythResult" + localLang);
   
   const cardButton = document.createElement("button");
   cardButton.className = "myth_card";
   cardButton.type = "button";
   cardButton.dataset.index = i;
-  cardButton.dataset.isFact = card.isFact;
+  cardButton.dataset.isFact = isFact;
   
   const cardImage = document.createElement("div");
   cardImage.className = "card_image";
   
-  const cardText = document.createElement("p");
-  cardText.textContent = card.text;
+  const cardTextElement = document.createElement("p");
+  cardTextElement.textContent = cardText;
   
   const cardBack = document.createElement("div");
   cardBack.className = "card_back";
-  cardBack.textContent = card.result;
+  cardBack.textContent = resultText;
   
-  cardImage.appendChild(cardText);
+  cardImage.appendChild(cardTextElement);
   cardButton.appendChild(cardImage);
   cardButton.appendChild(cardBack);
   
@@ -313,13 +209,13 @@ for (let i = 0; i < mythCards.length; i++) {
     
     this.classList.add("flipped");
     
-    if (i === mythCards.length - 1) {
+    if (i === 2) {
       setTimeout(() => {
-        alert("You win! This is the scientifically proven fact.");
+        alert(localStorage.getItem("winMessage" + localLang));
       }, 300);
     } else {
       setTimeout(() => {
-        alert("You lose! This is a myth, not a fact.");
+        alert(localStorage.getItem("loseMessage" + localLang));
       }, 300);
     }
   });
