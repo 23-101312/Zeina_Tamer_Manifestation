@@ -8,7 +8,7 @@
 
   <title>Document</title>
 </head>
-<body>
+<body class="mode">
   <div id="preloader">
     <div class="preloader_rings"></div>
     <img src="assets/logo.png" alt="Logo" class="preloader_logo">
@@ -24,7 +24,7 @@
           <button id="en" onclick="changeLang('EN')"></button>
           <button id="ar" onclick="changeLang('AR')"></button>
         </div>
-        <button id="mode"><img src="assets/sun.svg" alt=""></button>
+        <button id="mode_button"><img src="assets/sun.svg" alt=""></button>
         <button id="login"><a href="login.html" id="login_link"></a></button>
       </div>
     </nav>
@@ -63,26 +63,7 @@
     <p id="cards_header_desc"></p>
   </div>
 
-  <div id="cards" class="cards_grid">
-    <button class="myth_card" type="button">
-      <div class="card_image">
-        <p>If you believe hard enough, the universe will deliver what you want.</p>
-      </div>
-    </button>
-
-    <button class="myth_card" type="button">
-      <div class="card_image">
-        <p>Writing affirmations rewires your brain automatically.</p>
-      </div>
-    </button>
-
-    <button class="myth_card" type="button">
-      <div class="card_image">
-        <p>Belief changes how your brain filters and interprets information.</p>
-      </div>
-    </button>
-  <div class="cards_grid" id="cards_grid">
-  </div>
+  <div class="cards_grid" id="cards_grid"></div>
 
   <p class="cards_hint" id="cards_hint"></p>
 </section>

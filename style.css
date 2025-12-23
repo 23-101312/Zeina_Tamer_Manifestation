@@ -10,6 +10,12 @@
   --black-text: black;
 }
 
+#mode {
+  --background: #212124;
+  --sections-bg: #000;
+  --main-text: #fff;
+}
+
 @font-face {
   font-family: "SF Pro Display";
   src: url("./assets/sf-pro-display/SFPRODISPLAYREGULAR.otf") format("opentype");
@@ -171,7 +177,7 @@ ul li a {
   cursor: pointer;
 }
 
-#mode {
+#mode_button {
   display: flex;
   padding: 10px;
   justify-content: center;
