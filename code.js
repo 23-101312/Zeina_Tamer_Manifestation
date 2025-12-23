@@ -8,6 +8,68 @@ function activate(e) {
 
 document.addEventListener('click',activate,false);
 
+const mythCards = [
+  {
+    text: "If you believe hard enough, the universe will deliver what you want.",
+    isFact: false,
+    result: "MYTH"
+  },
+  {
+    text: "Writing affirmations rewires your brain automatically.",
+    isFact: false,
+    result: "MYTH"
+  },
+  {
+    text: "Belief changes how your brain filters and interprets information.",
+    isFact: true,
+    result: "SCIENCE"
+  }
+];
+
+const cardsGrid = document.getElementById("cards_grid");
+
+for (let i = 0; i < mythCards.length; i++) {
+  const card = mythCards[i];
+  
+  const cardButton = document.createElement("button");
+  cardButton.className = "myth_card";
+  cardButton.type = "button";
+  cardButton.dataset.index = i;
+  cardButton.dataset.isFact = card.isFact;
+  
+  const cardImage = document.createElement("div");
+  cardImage.className = "card_image";
+  
+  const cardText = document.createElement("p");
+  cardText.textContent = card.text;
+  
+  const cardBack = document.createElement("div");
+  cardBack.className = "card_back";
+  cardBack.textContent = card.result;
+  
+  cardImage.appendChild(cardText);
+  cardButton.appendChild(cardImage);
+  cardButton.appendChild(cardBack);
+  
+  cardButton.addEventListener("click", function() {
+    if (this.classList.contains("flipped")) return; 
+    
+    this.classList.add("flipped");
+    
+    if (i === mythCards.length - 1) {
+      setTimeout(() => {
+        alert("You win! This is the scientifically proven fact.");
+      }, 300);
+    } else {
+      setTimeout(() => {
+        alert("You lose! This is a myth, not a fact.");
+      }, 300);
+    }
+  });
+  
+  cardsGrid.appendChild(cardButton);
+}
+
 let contact_form = document.querySelector(".contact_form")
 
 function get_form_values() {
