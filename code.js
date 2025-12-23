@@ -1,16 +1,56 @@
 let localLang = localStorage.getItem("language") || "EN";
-
 let navItems = JSON.parse(localStorage.getItem("navItems" + localLang));
 
-document.getElementById("nav_list").innerHTML += `
-  <li class="active"><a href="">${navItems[0]}</a></li>
-`;
+const navLinks = [
+  "#hero",
+  "#story",
+  "#myths",
+  "#science",
+  "#gallery",
+  "#contact"
+];
 
-for (let i = 1; i < navItems.length; i++) {
-  document.getElementById("nav_list").innerHTML += `
-    <li><a href="">${navItems[i]}</a></li>
+const navList = document.getElementById("nav_list");
+navList.innerHTML = "";
+
+for (let i = 0; i < navItems.length; i++) {
+
+  let activeClass = "";
+
+  if (i === 0) {
+    activeClass = "active";
+  }
+
+  navList.innerHTML += `
+    <li class="${activeClass}">
+      <a href="${navLinks[i]}">${navItems[i]}</a>
+    </li>
   `;
 }
+
+
+let footerNav = document.getElementById("footer_nav");
+
+const footerLinks = [
+  "#hero",
+  "#story",
+  "#myths",
+  "#science",
+  "#gallery",
+  "#contact"
+];
+
+footerNav.innerHTML = "";
+
+for (let i = 0; i < navItems.length; i++) {
+  footerNav.innerHTML += `
+    <li>
+      <a href="${footerLinks[i]}">${navItems[i]}</a>
+    </li>
+  `;
+}
+
+
 
 document.getElementById('en').innerHTML = 'En';
 document.getElementById('ar').innerHTML = 'Ar';
@@ -95,7 +135,7 @@ const galleryImages = [
   { image: 'assets/image3.webp' },
   { image: 'assets/image4.webp' },
   { image: 'assets/image5.webp' },
-  { image: 'assets/image1.webp' }
+  { image: 'assets/image6.webp' }
 ];
 
 function loadGallery() {
@@ -340,3 +380,36 @@ function closeAd(){
 document.getElementById("mode_button").addEventListener("click", () => {
   document.body.classList.toggle("mode");
 });
+
+document.getElementById("stats_title").innerHTML =
+  localStorage.getItem("statsTitle" + localLang)
+
+document.getElementById("stats_desc").innerHTML =
+  localStorage.getItem("statsDesc" + localLang)
+
+document.getElementById("stat_1_number").innerHTML =
+  localStorage.getItem("stat1Number" + localLang)
+
+document.getElementById("stat_1_text").innerHTML =
+  localStorage.getItem("stat1Text" + localLang)
+
+document.getElementById("stat_2_number").innerHTML =
+  localStorage.getItem("stat2Number" + localLang)
+
+document.getElementById("stat_2_text").innerHTML =
+  localStorage.getItem("stat2Text" + localLang)
+
+document.getElementById("stat_3_number").innerHTML =
+  localStorage.getItem("stat3Number" + localLang)
+
+document.getElementById("stat_3_text").innerHTML =
+  localStorage.getItem("stat3Text" + localLang)
+
+document.getElementById("footer_brand").innerHTML =
+  localStorage.getItem("footerBrand" + localLang)
+
+document.getElementById("footer_text").innerHTML =
+  localStorage.getItem("footerText" + localLang)
+
+document.getElementById("footer_copy").innerHTML =
+  localStorage.getItem("footerCopy" + localLang)

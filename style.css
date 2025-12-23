@@ -10,7 +10,7 @@
   --black-text: black;
 }
 
-#mode {
+body.mode {
   --background: #212124;
   --sections-bg: #000;
   --main-text: #fff;
@@ -1378,3 +1378,143 @@ model-viewer.science_viewer {
   color: var(--main-text);
   line-height: 1.5;
 }
+
+/* =========================
+   STATS SECTION
+========================= */
+.stats_section{
+  width: 1300px;
+  background: var(--sections-bg);
+  border-radius: 40px;
+  margin: 0 auto;
+  padding: 70px 60px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+  background-image: url(assets/story.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.stats_header{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stats_header h2{
+  font-family: "SF Pro Display";
+  font-size: 44px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--main-text);
+}
+
+.stats_header p{
+  font-family: "Acorn";
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--pink-text);
+  line-height: 139.583%;
+}
+
+.stats_grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.stat_card{
+  background: rgba(255,255,255,0.35);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 26px;
+  padding: 26px 22px;
+  box-sizing: border-box;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.stat_card h3{
+  font-family: "SF Pro Display";
+  font-size: 54px;
+  font-weight: 700;
+  color: var(--main-text);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.stat_card p{
+  font-family: "Acorn";
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--main-text);
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+footer {
+  width: 100%;
+  background: var(--sections-bg);
+  border-radius: 40px;
+  padding: 40px 60px;
+  box-sizing: border-box;
+  background-image: url(assets/story.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 60px;
+}
+
+#footer_brand {
+  font-family: "SF Pro Display";
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--main-text);
+  text-transform: uppercase;
+}
+
+#footer_text {
+  font-family: "Acorn";
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--main-text);
+  opacity: 0.85;
+}
+
+#footer_copy {
+  font-family: "SF Pro Display";
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--grey);
+  margin-top: 10px;
+}
+
+
+#footer_nav {
+  display: flex;
+  gap: 24px;
+  padding: 0;
+  margin: 20px 0 0 0;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+#footer_nav a {
+  font-family: "Acorn";
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--main-text);
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+#footer_nav a:hover {
+  opacity: 1;
+}
+
