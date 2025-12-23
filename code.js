@@ -298,3 +298,25 @@ if (contact_form) {
     contact_form.reset()
   })
 }
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("preloader").style.display = "none";
+  }, 3000);
+});
+
+let neurologyFacts = [
+  "Your brain creates new neural pathways every time you learn something new.",
+  "Belief activates the same brain regions as actual experience, which is why visualization can feel so real.",
+  "The placebo effect proves that belief alone can trigger measurable physical changes in your brain and body.",
+  "When you focus on a goal, your brain's reticular activating system filters information to match your beliefs.",
+  "Neuroplasticity means your brain can literally rewire itself based on your thoughts and actions."
+];
+
+let randomNum = Math.floor(Math.random() * neurologyFacts.length);
+document.getElementById("random_fact_card").innerHTML = `<button onclick="closeAd()">x</button><p>${neurologyFacts[randomNum]}</p>`;
+document.getElementById("random_fact_card").style.backgroundImage = `url(assets/story.png)`;
+
+function closeAd(){
+  document.getElementById("random_fact_card").style.display = "none";
+}
