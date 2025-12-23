@@ -15,20 +15,20 @@
     <img class="login_page_brain" src="assets/logo (2).png" alt="">
 
     <div class="login_page_card">
-      <h1 class="login_page_title">Welcome Back</h1>
-      <p class="login_page_subtitle">Sign in to continue your journey</p>
+      <h1 id="login_page_title" class="login_page_title"></h1>
+      <p id="login_page_subtitle" class="login_page_subtitle"></p>
 
-      <form class="login_page_form" action="#" method="post">
+      <form class="login_page_form">
         <div class="login_page_field">
           <label class="login_page_label" for="login_email">Email Address</label>
-          <input class="login_page_input" id="login_email" type="email" placeholder="Enter your email">
+          <input class="login_page_input" id="gmail" type="email" placeholder="Enter your email">
         </div>
 
         <div class="login_page_field">
           <label class="login_page_label" for="login_password">Password</label>
 
           <div class="login_page_password_wrap">
-            <input class="login_page_input login_page_input_password" id="login_password" type="password" placeholder="Enter your password">
+            <input class="login_page_input login_page_input_password" id="password" type="password" placeholder="Enter your password">
             <button class="login_page_eye_btn" type="button">
               <img class="login_page_eye_icon" src="assets/hide.png" alt="">
             </button>
@@ -46,14 +46,15 @@
 
         
       </form>
-      <button class="login_page_primary_btn" type="submit">Sign In</button>
+      <button onclick="test()" id="login_page_primary_btn" class="login_page_primary_btn"></button>
 
     </div>
   </div>
 </section>
 
 
-  
+  <script src="localstorage.js"></script>
+  <script src="login.js"></script>
   <script src="code.js"></script>
   
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
