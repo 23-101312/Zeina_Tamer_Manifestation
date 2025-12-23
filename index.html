@@ -12,21 +12,15 @@
   <header>
     <nav>
       <img class="logo" src="assets/logo (2).png" alt="">
-      <ul>
-        <li class="active"><a href="">Home</a></li>
-        <li><a href="">Story</a></li>
-        <li><a href="">Myths</a></li>
-        <li><a href="">Science</a></li>
-        <li><a href="">Gallery</a></li>
-        <li><a href="">Contact</a></li>        
+      <ul id="nav_list">
       </ul>
       <div class="header_btns">
         <div class="lang">
-          <button id="en">En</button>
-          <button id="ar">Ar</button>
+          <button id="en"></button>
+          <button id="ar"></button>
         </div>
         <button id="mode"><img src="assets/sun.svg" alt=""></button>
-        <button id="login"><a href="">Login</a></button>
+        <button id="login"><a href="" id="login_link"></a></button>
       </div>
     </nav>
   </header>
@@ -36,46 +30,17 @@
   
 
   <section class="hero">
-    <h1>What if manifestation <br>isn’t magic?</h1>
-    <h3>What actually happens <br>
-inside your brain  when you believe something.</h3>
+    <h1 id="hero_title"></h1>
+    <h3 id="hero_subtitle"></h3>
   </section>
 
   <section class="story_section">
-    <button class="skip_btn">
-      <span>Skip</span>
+    <button class="skip_btn" id="skip_btn">
+      <span id="skip_text"></span>
       <div class="skip_arrow">→</div>
     </button>
 
-    <div class="story_scroller">
-      <div class="story_frame">
-        <div class="story_content">
-          <img src="assets/girl1.png" class="story_girl">
-          <p class="story_text">
-          You were told that belief alone could change your life
-        </p>
-        </div>
-      </div>
-
-      <div class="story_frame story_frame_2">
-        <p class="story_text2">
-          That if you visualized hard enough, results would follow
-        </p>
-        <div class="story_content2">
-          <img src="assets/bubble1.png" class="story_neuron story_neuron_1">
-          <img src="assets/girl2.png" class="story_girl2">
-        </div>
-      </div>
-
-      <div class="story_frame story_frame_3">
-        <p class="story_text2">
-          But when nothing changed, you blamed yourself
-        </p>
-        <div class="story_content2">
-          <img src="assets/bubble2.png" class="story_neuron story_neuron_2">
-          <img src="assets/girl3.png" class="story_girl2">
-        </div>
-      </div>
+    <div class="story_scroller" id="story_scroller">
     </div>
 <!-- 
     <div class="progress_bar">
@@ -85,21 +50,21 @@ inside your brain  when you believe something.</h3>
 
   <section class="cards_section" id="myths">
   <div class="cards_header">
-    <h2>TWO MYTHS & ONE FACT</h2>
-    <p>Three statements below. Only one is scientifically true. Choose wisely.</p>
+    <h2 id="cards_header_title"></h2>
+    <p id="cards_header_desc"></p>
   </div>
 
   <div class="cards_grid" id="cards_grid">
   </div>
 
-  <p class="cards_hint">Tap a card to reveal whether it is a myth or a fact.</p>
+  <p class="cards_hint" id="cards_hint"></p>
 </section>
 
-<section class="science_section" id="science">
+  <section class="science_section" id="science">
 
   <div class="science_header">
-    <h2>WHAT ACTUALLY HAPPENS IN THE BRAIN</h2>
-    <p>Belief doesn't change reality directly. It changes how your brain processes it.</p>
+    <h2 id="science_header_title"></h2>
+    <p id="science_header_desc"></p>
   </div>
 
   <div class="science_stage">
@@ -114,18 +79,15 @@ inside your brain  when you believe something.</h3>
       shadow-intensity="1"
       interaction-prompt="none"
       camera-orbit="-275.1deg 92.94deg 2.079m"
-      field-of-view="30deg">
+      field-of-view="30deg"
+      id="science_viewer">
       <button class="Hotspot glass_hotspot" slot="hotspot-1"
         data-position="-0.28m 0.244m 0.300m"
         data-normal="0.7254352134542846m 0.5898857252891628m 0.35465276282670455m"
         data-visibility-attribute="visible">
         <div class="hotspot_card">
-          <h4>Belief changes what you notice</h4>
-          <p>
-            Your brain filters information. When you believe something, your brain starts paying attention to things that match that belief and ignoring what doesn't.
-            <br><br>
-            You don't see more. You see differently.
-          </p>
+          <h4 id="hotspot_1_title"></h4>
+          <p id="hotspot_1_desc"></p>
         </div>
       </button>
 
@@ -134,12 +96,8 @@ inside your brain  when you believe something.</h3>
         data-normal="0.9077742725982239m -0.3477433509359827m -0.23456434487913877m"
         data-visibility-attribute="visible">
         <div class="hotspot_card">
-          <h4>Belief changes how things feel</h4>
-          <p>
-            The brain decides what matters emotionally. The same situation can feel motivating, stressful, or meaningless depending on what you believe about it.
-            <br><br>
-            Nothing outside changes. The feeling does.
-          </p>
+          <h4 id="hotspot_2_title"></h4>
+          <p id="hotspot_2_desc"></p>
         </div>
       </button>
 
@@ -148,12 +106,8 @@ inside your brain  when you believe something.</h3>
         data-normal="0.6412768189384314m 0.04684271869528352m 0.7658784506678855m"
         data-visibility-attribute="visible">
         <div class="hotspot_card">
-          <h4>Motivation isn't willpower</h4>
-          <p>
-            Your brain is more likely to repeat actions that feel important or rewarding. Beliefs influence which actions get that priority.
-            <br><br>
-            What feels "easy" or "hard" is often brain wiring.
-          </p>
+          <h4 id="hotspot_3_title"></h4>
+          <p id="hotspot_3_desc"></p>
         </div>
       </button>
 
@@ -178,29 +132,29 @@ inside your brain  when you believe something.</h3>
   </div>
 </section>
 
-<section class="contact_section" id="contact">
+  <section class="contact_section" id="contact">
   <div class="contact_header">
-    <h2>Contact Us</h2>
-    <p>Get in touch with us</p>
+    <h2 id="contact_header_title"></h2>
+    <p id="contact_header_desc"></p>
   </div>
   
-  <form class="contact_form">
+  <form class="contact_form" id="contact_form">
     <div class="form_group">
-      <label for="name">Name</label>
+      <label for="name" id="name_label"></label>
       <input type="text" id="name" name="name" required>
     </div>
     
     <div class="form_group">
-      <label for="email">Email</label>
+      <label for="email" id="email_label"></label>
       <input type="email" id="email" name="email" required>
     </div>
     
     <div class="form_group">
-      <label for="message">Message</label>
+      <label for="message" id="message_label"></label>
       <textarea id="message" name="message" rows="5" required></textarea>
     </div>
 
-    <button type="submit" class="submit_btn">Send Message</button>
+    <button type="submit" class="submit_btn" id="submit_btn"></button>
   </form>
 </section>
 

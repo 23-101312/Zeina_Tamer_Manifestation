@@ -1,3 +1,121 @@
+const navItems = ['Home', 'Story', 'Myths', 'Science', 'Gallery', 'Contact'];
+
+const storyFrames = [
+  {
+    type: 'frame1',
+    image: 'assets/girl1.png',
+    imageClass: 'story_girl',
+    text: 'You were told that belief alone could change your life',
+    textClass: 'story_text'
+  },
+  {
+    type: 'frame2',
+    text: 'That if you visualized hard enough, results would follow',
+    textClass: 'story_text2',
+    images: [
+      { src: 'assets/bubble1.png', class: 'story_neuron story_neuron_1' },
+      { src: 'assets/girl2.png', class: 'story_girl2' }
+    ]
+  },
+  {
+    type: 'frame3',
+    text: 'But when nothing changed, you blamed yourself',
+    textClass: 'story_text2',
+    images: [
+      { src: 'assets/bubble2.png', class: 'story_neuron story_neuron_2' },
+      { src: 'assets/girl3.png', class: 'story_girl2' }
+    ]
+  }
+];
+
+const scienceHotspots = [
+  {
+    title: 'Belief changes what you notice',
+    description: 'Your brain filters information. When you believe something, your brain starts paying attention to things that match that belief and ignoring what doesn\'t.<br><br>You don\'t see more. You see differently.'
+  },
+  {
+    title: 'Belief changes how things feel',
+    description: 'The brain decides what matters emotionally. The same situation can feel motivating, stressful, or meaningless depending on what you believe about it.<br><br>Nothing outside changes. The feeling does.'
+  },
+  {
+    title: 'Motivation isn\'t willpower',
+    description: 'Your brain is more likely to repeat actions that feel important or rewarding. Beliefs influence which actions get that priority.<br><br>What feels "easy" or "hard" is often brain wiring.'
+  }
+];
+
+document.getElementById("nav_list").innerHTML += `
+  <li class="active"><a href="">${navItems[0]}</a></li>
+`;
+
+for (let i = 1; i < navItems.length; i++) {
+  document.getElementById("nav_list").innerHTML += `
+    <li><a href="">${navItems[i]}</a></li>
+  `;
+}
+
+document.getElementById('en').innerHTML = 'En';
+document.getElementById('ar').innerHTML = 'Ar';
+document.getElementById('login_link').innerHTML = 'Login';
+
+document.getElementById('hero_title').innerHTML = 'What if manifestation <br>isn\'t magic?';
+document.getElementById('hero_subtitle').innerHTML = 'What actually happens <br>inside your brain  when you believe something.';
+
+document.getElementById('skip_text').innerHTML = 'Skip';
+
+document.getElementById("story_scroller").innerHTML += `
+  <div class="story_frame">
+    <div class="story_content">
+      <img src="${storyFrames[0].image}" class="${storyFrames[0].imageClass}">
+      <p class="${storyFrames[0].textClass}">${storyFrames[0].text}</p>
+    </div>
+  </div>
+`;
+
+let imagesHTML2 = '';
+for (let j = 0; j < storyFrames[1].images.length; j++) {
+  imagesHTML2 += `<img src="${storyFrames[1].images[j].src}" class="${storyFrames[1].images[j].class}">`;
+}
+document.getElementById("story_scroller").innerHTML += `
+  <div class="story_frame story_frame_2">
+    <p class="${storyFrames[1].textClass}">${storyFrames[1].text}</p>
+    <div class="story_content2">
+      ${imagesHTML2}
+    </div>
+  </div>
+`;
+
+let imagesHTML3 = '';
+for (let j = 0; j < storyFrames[2].images.length; j++) {
+  imagesHTML3 += `<img src="${storyFrames[2].images[j].src}" class="${storyFrames[2].images[j].class}">`;
+}
+document.getElementById("story_scroller").innerHTML += `
+  <div class="story_frame story_frame_3">
+    <p class="${storyFrames[2].textClass}">${storyFrames[2].text}</p>
+    <div class="story_content2">
+      ${imagesHTML3}
+    </div>
+  </div>
+`;
+
+document.getElementById('cards_header_title').innerHTML = 'TWO MYTHS & ONE FACT';
+document.getElementById('cards_header_desc').innerHTML = 'Three statements below. Only one is scientifically true. Choose wisely.';
+document.getElementById('cards_hint').innerHTML = 'Tap a card to reveal whether it is a myth or a fact.';
+
+document.getElementById('science_header_title').innerHTML = 'WHAT ACTUALLY HAPPENS IN THE BRAIN';
+document.getElementById('science_header_desc').innerHTML = 'Belief doesn\'t change reality directly. It changes how your brain processes it.';
+
+for (let i = 0; i < scienceHotspots.length; i++) {
+  document.getElementById(`hotspot_${i + 1}_title`).innerHTML = scienceHotspots[i].title;
+  document.getElementById(`hotspot_${i + 1}_desc`).innerHTML = scienceHotspots[i].description;
+}
+
+document.getElementById('contact_header_title').innerHTML = 'Contact Us';
+document.getElementById('contact_header_desc').innerHTML = 'Get in touch with us';
+document.getElementById('name_label').innerHTML = 'Name';
+document.getElementById('email_label').innerHTML = 'Email';
+document.getElementById('message_label').innerHTML = 'Message';
+document.getElementById('submit_btn').innerHTML = 'Send Message';
+
 function activate(e) {
   const slider = document.querySelector('.slider') || document.getElementById('gallery_slider');
   const items = document.querySelectorAll('.item');
@@ -209,7 +327,7 @@ for (let i = 0; i < mythCards.length; i++) {
   cardsGrid.appendChild(cardButton);
 }
 
-let contact_form = document.querySelector(".contact_form")
+let contact_form = document.getElementById("contact_form")
 
 function get_form_values() {
   return {
