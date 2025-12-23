@@ -960,6 +960,17 @@ model-viewer.science_viewer {
   cursor: pointer;
 }
 
+.login_page_error {
+  display: none;
+  margin-top: 14px;
+  text-align: center;
+  font-family: "SF Pro Display";
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--pink-text);
+}
+
+
 .contact_section {
   width: 1300px;
   background-color: var(--sections-bg);
@@ -971,6 +982,9 @@ model-viewer.science_viewer {
   flex-direction: column;
   gap: 45px;
   background-image: url(assets/story.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .contact_header {
@@ -1067,4 +1081,45 @@ model-viewer.science_viewer {
   background: var(--pink-bg);
   transform: translateY(-2px);
   box-shadow: var(--shadow);
+}
+
+.success_message {
+  max-width: 600px;
+  margin: 20px auto 0;
+  padding: 24px;
+  background: var(--sections-bg);
+  border-radius: 16px;
+  border: 2px solid var(--pink-bg);
+  box-shadow: var(--shadow);
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.success_content {
+  text-align: center;
+}
+
+.success_content h3 {
+  font-family: "SF Pro Display";
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--pink-bg);
+  margin-bottom: 8px;
+}
+
+.success_content p {
+  font-family: "SF Pro Display";
+  font-size: 16px;
+  color: var(--main-text);
+  line-height: 1.5;
 }
